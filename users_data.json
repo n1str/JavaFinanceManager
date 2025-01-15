@@ -1,0 +1,27 @@
+{
+  "nex3g": {
+    "login": "testuser",
+    "password": "12345",
+    "wallet": {
+      "transactions": [],
+      "categoryBudgets": {}
+    }
+  },
+  "test": {
+    "login": "test",
+    "password": "12345",
+    "wallet": {
+      "transactions": [
+        {
+          "amount": 1100.0,
+          "category": "rab",
+          "type": "INCOME",
+          "dateTime": "2025-01-15T17:48:58.0273433"
+        }
+      ],
+      "categoryBudgets": {
+        "eda": 100.0
+      }
+    }
+  }
+}
