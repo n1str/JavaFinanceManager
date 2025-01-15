@@ -79,6 +79,9 @@ public class Main {
                 transactionService.handleDeleteTransaction();
                 return true;
             case "7":
+                transactionService.handleTransferFunds();
+                return true;
+            case "8":
                 userService.logout();
                 return true;
             case "0":

@@ -23,5 +23,74 @@
         "eda": 100.0
       }
     }
+  },
+  "test1": {
+    "login": "test1",
+    "password": "12345",
+    "wallet": {
+      "transactions": [
+        {
+          "amount": 1000.0,
+          "category": "rab",
+          "type": "INCOME",
+          "dateTime": "2025-01-15T18:08:21.3734044"
+        },
+        {
+          "amount": 500.0,
+          "category": "Перевод: test2",
+          "type": "EXPENSE",
+          "dateTime": "2025-01-15T18:08:33.2729361"
+        },
+        {
+          "amount": 100.0,
+          "category": "Перевод: test2",
+          "type": "EXPENSE",
+          "dateTime": "2025-01-15T18:19:22.4251598"
+        },
+        {
+          "amount": 10000.0,
+          "category": "rabota",
+          "type": "INCOME",
+          "dateTime": "2025-01-15T18:21:00.5774537"
+        },
+        {
+          "amount": 1000.0,
+          "category": "Перевод: test2",
+          "type": "EXPENSE",
+          "dateTime": "2025-01-15T18:21:37.8133193"
+        }
+      ],
+      "categoryBudgets": {
+        "Перевод": 1000.0,
+        "eda": 500.0
+      }
+    }
+  },
+  "test2": {
+    "login": "test2",
+    "password": "12345",
+    "wallet": {
+      "transactions": [
+        {
+          "amount": 500.0,
+          "category": "Перевод от: test1",
+          "type": "INCOME",
+          "dateTime": "2025-01-15T18:08:33.2729361"
+        },
+        {
+          "amount": 100.0,
+          "category": "Перевод от: test1",
+          "type": "INCOME",
+          "dateTime": "2025-01-15T18:19:22.4251598"
+        },
+        {
+          "amount": 1000.0,
+          "category": "Перевод от: test1",
+          "type": "INCOME",
+          "dateTime": "2025-01-15T18:21:37.8133193"
+        }
+      ],
+      "categoryBudgets": {}
+    }
   }
 }

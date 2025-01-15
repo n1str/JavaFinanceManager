@@ -91,4 +91,18 @@ public class TransactionService {
     public void handleShowStatistics() {
         walletService.showStatistics();
     }
+
+    public void handleTransferFunds() {
+        try {
+            String recipientLogin = ValidationService.validateLogin(
+                    menuService.readInput("Введите логин получателя: "));
+
+            double amount = ValidationService.validateAmount(
+                    menuService.readInput("Введите сумму перевода: "));
+
+            walletService.transferFunds(recipientLogin, amount);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

@@ -141,4 +141,40 @@ public class WalletService {
             System.out.println();
         }
     }
+
+    public boolean transferFunds(String recipientLogin, double amount) {
+        if (!userService.isLoggedIn() || amount <= 0) {
+            return false;
+        }
+
+        if (recipientLogin.equals(userService.getCurrentUser().getLogin())) {
+            System.out.println("❌ Нельзя перевести средства самому себе!");
+            return false;
+        }
+
+        User recipient = userService.getUserByLogin(recipientLogin);
+        if (recipient == null) {
+            System.out.println("❌ Получатель с логином " + recipientLogin + " не найден!");
+            return false;
+        }
+
+        Wallet senderWallet = userService.getCurrentUser().getWallet();
+        Wallet recipientWallet = recipient.getWallet();
+
+        if (senderWallet.getTotalIncome() - senderWallet.getTotalExpense() < amount) {
+            System.out.println("⚠️ ВНИМАНИЕ! Недостаточно средств для перевода!");
+            System.out.printf("Доступно: %.2f руб., Требуется: %.2f руб.\n",
+                    senderWallet.getTotalIncome() - senderWallet.getTotalExpense(), amount);
+            return false;
+        }
+
+        Transaction expenseTransaction = new Transaction(amount, "Перевод: " + recipientLogin, TransactionType.EXPENSE);
+        Transaction incomeTransaction = new Transaction(amount, "Перевод от: " + userService.getCurrentUser().getLogin(), TransactionType.INCOME);
+
+        senderWallet.addTransaction(expenseTransaction);
+        recipientWallet.addTransaction(incomeTransaction);
+
+        System.out.printf("✅ Перевод успешно выполнен: %.2f руб. пользователю %s\n", amount, recipientLogin);
+        return true;
+    }
 }

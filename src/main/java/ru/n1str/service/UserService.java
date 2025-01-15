@@ -45,6 +45,10 @@ public class UserService {
         return currentUser != null;
     }
 
+    public User getUserByLogin(String login) {
+        return users.get(login);
+    }
+
     private void loadData() {
         Map<String, User> loadedUsers = FileManager.loadData();
         if (loadedUsers != null) {

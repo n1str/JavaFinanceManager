@@ -28,7 +28,8 @@ public class MenuService {
         System.out.println("4. Просмотреть статистику");
         System.out.println("5. Редактировать транзакцию");
         System.out.println("6. Удалить транзакцию");
-        System.out.println("7. Выйти из аккаунта");
+        System.out.println("7. Перевести средства");
+        System.out.println("8. Выйти из аккаунта");
         System.out.println("0. Завершить работу");
         System.out.print("Выберите действие: ");
     }
